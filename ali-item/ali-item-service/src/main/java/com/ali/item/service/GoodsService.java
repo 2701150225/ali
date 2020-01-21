@@ -96,7 +96,7 @@ public class GoodsService {
             return spuBo;
         }).collect(Collectors.toList());
 
-        //返回pageResult对象
+        //返回pageResult
         return new PageResult<>(pageInfo.getTotal(), pageInfo.getPages(), spuBos);
     }
 
@@ -150,6 +150,7 @@ public class GoodsService {
         Sku sku = new Sku();
         sku.setSpuId(spuId);
         List<Sku> skus = this.skuMapper.select(sku);
+        System.out.println(skus);
         //遍历集合，获取库存
         skus.forEach(sku1 -> {
             Stock stock = this.stockMapper.selectByPrimaryKey(sku1.getId());
@@ -245,7 +246,6 @@ public class GoodsService {
 
     /**
      * 根据skuId查询sku
-     *
      * @param skuId
      * @return
      */

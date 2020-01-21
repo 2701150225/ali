@@ -21,6 +21,7 @@ import java.util.List;
  * @Date: 2020/1/19 16:17
  */
 @Controller
+
 public class GoodsController {
 
     @Autowired
